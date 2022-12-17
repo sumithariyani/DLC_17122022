@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".fragment.HomeFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_app_background"
+            android:orientation="vertical"
+            tools:context=".HomeActivity">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/bg_edit_1"
+                        android:drawableEnd="@drawable/ic_search"
+                        android:elevation="@dimen/_5sdp"
+                        android:focusable="false"
+                        android:hint="@string/search"
+                        android:inputType="text"
+                        android:padding="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/color_dark_grey"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <FrameLayout
+                                    android:id="@+id/video_layout"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/white"
+                                    android:clickable="true"
+                                    android:focusable="true">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:id="@+id/nonVideoLayout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:orientation="vertical">
+
+                                            <com.theLearningcLub.utils.VideoEnabledWebView
+                                                android:id="@+id/wv"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/_160sdp" />
+                                        </LinearLayout>
+
+                                        <RelativeLayout
+                                            android:id="@+id/rr"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/_170sdp"
+                                            android:weightSum="1">
+
+                                            <androidx.viewpager.widget.ViewPager
+                                                android:id="@+id/viewpager"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_above="@+id/layoutDots"
+                                                android:background="@color/white">
+
+                                            </androidx.viewpager.widget.ViewPager>
+
+                                            <LinearLayout
+                                                android:id="@+id/layoutDots"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_alignParentBottom="true"
+                                                android:layout_centerHorizontal="true"
+                                                android:layout_marginBottom="@dimen/_5sdp"
+                                                android:orientation="horizontal"></LinearLayout>
+                                        </RelativeLayout>
+                                        <!-- View where the video will be shown when video goes fullscreen -->
+                                    </LinearLayout>
+
+                                    <RelativeLayout
+                                        android:id="@+id/videoLayout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center">
+
+                                    </RelativeLayout>
+                                </FrameLayout>
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/btn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_margin="@dimen/_15sdp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/bottomHome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            app:cardCornerRadius="@dimen/_10sdp"
+                            app:cardElevation="@dimen/_10sdp">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/_290sdp"
+                                android:layout_height="@dimen/_150sdp"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/_290sdp"
+                                    android:layout_height="@dimen/_150sdp"
+                                    android:scaleType="centerCrop"
+                                    android:src="@drawable/ic_bg" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_25sdp"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:fontFamily="@font/googlesans_bold"
+                                        android:text="@string/daily_quiz"
+                                        android:textColor="@color/color_green"
+                                        android:textSize="@dimen/_20sdp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/googlesans_regular"
+                                        android:text="@string/are_you_ready_to_test_nyour_brain"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_10sdp" />
+
+                                    <TextView
+                                        android:id="@+id/tvPayNow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_20sdp"
+                                        android:background="@drawable/bg_btn_pirple"
+                                        android:fontFamily="@font/googlesans_medium"
+                                        android:gravity="center"
+                                        android:paddingStart="@dimen/_15sdp"
+                                        android:paddingTop="@dimen/_8sdp"
+                                        android:paddingEnd="@dimen/_15sdp"
+                                        android:paddingBottom="@dimen/_8sdp"
+                                        android:text="@string/play_now"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/_12sdp" />
+                                </LinearLayout>
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/googlesans_medium"
+                                android:text="@string/vocabulary_packages"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp" />
+
+                            <TextView
+                                android:id="@+id/tvMore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_btn_orange"
+                                android:fontFamily="@font/googlesans_medium"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="@string/more"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_vocabulary"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/vocabulary_layout" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/googlesans_medium"
+                                android:text="@string/grammar_packages"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp" />
+
+                            <TextView
+                                android:id="@+id/tvGrammarMore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_btn_orange"
+                                android:fontFamily="@font/googlesans_medium"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="@string/more"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_Grammar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/vocabulary_layout" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvImageSlider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/recycler_ads" />
+
+                        <RelativeLayout
+                            android:layout_width="@dimen/_300sdp"
+                            android:layout_height="@dimen/_150sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:background="@drawable/ic_banner"
+                            android:visibility="gone">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_25sdp"
+                                android:layout_marginTop="@dimen/_30sdp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:fontFamily="@font/googlesans_bold"
+                                    android:text="@string/become_fluent_in_nenglish_with_us"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/googlesans_regular"
+                                    android:text="@string/learn_english_with_us_and_ntake_your_skils_to_the_next_level"
+                                    android:textColor="@color/color_dark_grey_1"
+                                    android:textSize="@dimen/_8sdp" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/googlesans_medium"
+                                android:text="@string/general_knowledge"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_14sdp" />
+
+                            <TextView
+                                android:id="@+id/tvGeneralMore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_btn_orange"
+                                android:fontFamily="@font/googlesans_medium"
+                                android:gravity="center"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="@string/more"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvGeneralKnowledge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_5sdp">
+
+                            <TextView
+                                android:id="@+id/supportCallNumber2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/googlesans_regular"
+                                android:gravity="center"
+                                android:text="Having trouble with DLC?"
+                                android:textColor="@color/color_orange_1"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <TextView
+                                android:id="@+id/supportCallNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:drawableStart="@drawable/ic_mobile_phone_1"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:fontFamily="@font/googlesans_regular"
+                                android:gravity="center"
+                                android:text="@string/_8989780888"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/googlesans_regular"
+                                android:gravity="center"
+                                android:text="10 A.M to 6 P.M"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_8sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

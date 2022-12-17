@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "201702160560",
+    "firebase_url": "https://dlc-thelearningclub.firebaseio.com",
+    "project_id": "dlc-thelearningclub",
+    "storage_bucket": "dlc-thelearningclub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201702160560:android:01c43872cde3da0ec7a375",
+        "android_client_info": {
+          "package_name": "com.theLearningcLub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201702160560-5s5hta86g21dbhbe1fqdgmpl45uambc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theLearningcLub",
+            "certificate_hash": "756f8df43b61300688c56092ca447131d46e8af0"
+          }
+        },
+        {
+          "client_id": "201702160560-pf8nhdi62c6ikh9k8c0h83jcfml03d9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdoXj2gEopbem7t4uqSwJltV1vT6A-kZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201702160560-pf8nhdi62c6ikh9k8c0h83jcfml03d9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

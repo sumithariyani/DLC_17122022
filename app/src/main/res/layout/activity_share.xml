@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        tools:context=".ShareActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_230sdp"
+            android:layout_height="@dimen/_230sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_share_01"/>
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/googlesans_regular"
+            android:text="@string/share_our_app_to_get_free_subscription"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/social_media_sharing"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/googlesans_regular"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_btn_quiz_orange"
+            android:padding="@dimen/_10sdp"
+            app:cornerRadius="@dimen/_20sdp"
+            android:layout_margin="@dimen/_10sdp"/>
+
+    </LinearLayout>
+</layout>

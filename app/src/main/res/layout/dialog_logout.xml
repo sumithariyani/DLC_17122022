@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_180sdp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn"
+        android:gravity="center"
+        android:minHeight="@dimen/_50sdp"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:tint="@android:color/white"
+            android:src="@drawable/logout" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|start"
+        android:orientation="vertical"
+        android:padding="@dimen/_20sdp">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:text="@string/do_you_want_to_exit"
+            android:fontFamily="@font/googlesans_regular"
+            android:textSize="@dimen/_12sdp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lyt_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_NO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/bg_btn"
+            android:text="@string/no"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10sdp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bt_YES"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/bg_btn"
+            android:text="@string/yes"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_10sdp" />
+
+    </LinearLayout>
+
+</LinearLayout>

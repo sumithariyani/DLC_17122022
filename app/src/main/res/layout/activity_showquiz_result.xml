@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".ShowquizResultActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/color_faa739"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:id="@+id/ivBack"
+                    android:src="@drawable/ic_back"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_gravity="center"
+                    android:layout_height="@dimen/_25sdp"
+                    app:tint="@color/white"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/review_quiz"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/googlesans_regular"
+                    android:textSize="@dimen/_16sdp"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivSearch"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:tint="@color/white"
+                    android:src="@drawable/ic_search"/>
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivCart"
+                    android:layout_width="@dimen/_40ssp"
+                    android:layout_height="@dimen/_40ssp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_cart_quiz"/>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:id="@+id/rvReviewQuiz"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:text="@string/make_me_better"
+            android:textColor="@color/white"
+            android:padding="@dimen/_10sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:id="@+id/better_btn"
+            android:textSize="@dimen/_14sdp"
+            android:fontFamily="@font/googlesans_medium"
+            android:background="@drawable/bg_btn_quiz_orange"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</layout>

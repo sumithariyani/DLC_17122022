@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        tools:context=".VideoActivity">
+
+        <LinearLayout
+            android:id="@+id/llBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/ic_back_arrow" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/googlesans_medium"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp" />
+            <!--            <ImageView-->
+            <!--                android:id="@+id/ivMyCart"-->
+            <!--                android:layout_width="@dimen/_35sdp"-->
+            <!--                android:layout_height="@dimen/_35sdp"-->
+            <!--                android:padding="@dimen/_2sdp"-->
+            <!--                android:src="@drawable/ic_cart"/>-->
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/videoview"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+
+            <LinearLayout
+                android:id="@+id/nonVideoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/exoplayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    app:show_buffering="when_playing"
+                    app:buffered_color="@color/teal_200"
+                    app:controller_layout_id="@layout/costom_playback_view"
+                    app:hide_on_touch="false"
+                    app:show_timeout="5000"
+                    app:resize_mode="fill"
+                    android:layout_centerInParent="true"
+                    android:foregroundGravity="center"
+                    app:player_layout_id="@layout/exp_layout_view"
+                    app:shutter_background_color="@color/black"
+                    app:surface_type="surface_view"
+                    app:use_controller="true" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/video_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/videoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <!-- View that will be shown while the fullscreen video loads. For example you could include
+                    a "Loading..." message. However, in this particular example this view is actually defined in
+                    view_loading_video.xml and inflated programmatically in ExampleActivity.java. The reason for
+                    this is to keep the main layout (this file) cleaner. -->
+                    <!-- <View
+                        android:id="@+id/videoLoading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:visibility="invisible" /> -->
+
+                </RelativeLayout>
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_40sdp"
+                android:layout_marginRight="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_20sdp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/BottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/videoTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/googlesans_medium"
+                        android:text="@string/volume_1_a_c_in_english"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/googlesans_regular"
+                        android:text="@string/veer_gupta"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12sdp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/shareVideo"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:visibility="gone"
+                    android:src="@drawable/ic_share_grey" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/ic_tag"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvVideoList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

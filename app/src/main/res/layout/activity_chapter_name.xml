@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".ChapterNameActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_170sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_bg_packages" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvPackagesName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:fontFamily="@font/googlesans_bold"
+                    android:textColor="@color/white"/>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tvSubject"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_8_subject"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:fontFamily="@font/googlesans_regular"
+                        android:textColor="@color/black"/>
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="@dimen/_10sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:background="@color/black"/>
+                    <TextView
+                        android:id="@+id/tvChapterName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_56_chapter"
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:fontFamily="@font/googlesans_regular"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/rvChapterName"/>
+
+    </LinearLayout>
+</layout>

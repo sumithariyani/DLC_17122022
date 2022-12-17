@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_ans_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:elevation="@dimen/_5sdp"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/bg_white">
+        <TextView
+            android:id="@+id/texview_item_rec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/not_only_the_criminal"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:fontFamily="@font/googlesans_regular"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_16sdp"/>
+    </LinearLayout>
+
+</LinearLayout>

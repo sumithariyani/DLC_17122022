@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/exo_unlock"
+        android:title="Lock Video" />
+
+    <item
+        android:id="@+id/quality"
+        android:visible="false"
+        android:title="Quality" />
+
+
+    <item
+        android:id="@+id/exo_pip"
+        android:visible="false"
+        android:title="Picture in Picture" />
+
+</menu>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".fragment.NotificationActivity">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/rvNotification"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/llEmptyNotification"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_200sdp"
+                android:layout_height="@dimen/_200sdp"
+                android:src="@drawable/ic_notification_empty"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/tvNoData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You don't have any notifications right now"
+                android:textSize="@dimen/_14sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/googlesans_regular"/>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

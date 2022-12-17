@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_Success_Payment"
+    android:orientation="vertical"
+    android:background="@drawable/ic_quiz_bg">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="40">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/ic_closs"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Trasaction Failure"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp"
+            android:layout_gravity="center"
+            android:gravity="center" />
+        <TextView
+            android:layout_marginTop="@dimen/_40ssp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textmsg"
+            android:textSize="@dimen/_18sdp"
+            android:text="Sorry,\nwe were unable to process \nthe transation.\nplease try again."
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="60"
+        android:layout_gravity="center"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_white"
+            android:orientation="horizontal">
+            <TextView
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:paddingRight="@dimen/_60sdp"
+                android:paddingLeft="@dimen/_70sdp"
+                android:text="Try Again"
+                android:id="@+id/RelativeLayoutbutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_0090ff"
+                android:textSize="@dimen/_18sdp"
+                android:fontFamily="@font/googlesans_bold"
+                android:textAllCaps="false"
+                android:background="?attr/selectableItemBackground" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="color_f69668">#f69668</color>
+    <color name="color_f05e64">#f05e64</color>
+    <color name="color_ff7400">#ff7400</color>
+    <color name="color_faa739">#faa739</color>
+    <color name="color_grey">#DAD4CE</color>
+    <color name="color_dark_grey">#B5B1AD</color>
+    <color name="color_dark_grey_1">#635F5C</color>
+    <color name="color_app_background">#f7f7f7</color>
+    <color name="color_green">#059647</color>
+    <color name="color_pirple">#73216e</color>
+    <color name="color_pirple_light">#b44097</color>
+    <color name="color_orange">#f27f25</color>
+    <color name="color_orange_light">#e79f33</color>
+    <color name="color_app_orange">#f48620</color>
+    <color name="color_blue">#2093af</color>
+    <color name="color_light_blue">#73cee7</color>
+    <color name="color_pink">#eb8099</color>
+    <color name="color_light_pink">#f7b6ca</color>
+    <color name="color_green_1">#56ab46</color>
+    <color name="color_light_green_1">#aad166</color>
+    <color name="color_pirple_blue">#6d7aba</color>
+    <color name="color_light_pirple_blue">#be91c2</color>
+    <color name="color_light_orange_1">#f79767</color>
+    <color name="color_light_orange_12">#f05e63</color>
+    <color name="color_green_shed_2">#0e998e</color>
+    <color name="color_green_2">#6fc070</color>
+    <color name="color_blue_3">#a6c1e5</color>
+    <color name="color_light_blue_2">#c2e8fa</color>
+    <color name="color_blue_light_1">#00a9bd</color>
+    <color name="notuttemade">#fef7e0</color>
+    <color name="color_blue_light_12">#3ebca4</color>
+    <color name="color_1098d6">#1098d6</color>
+    <color name="color_e6e7e9">#e6e7e9</color>
+
+    <color name="color_orange_1">#ff9800</color>
+    <color name="color_FFF38025">#FFF38025</color>
+    <color name="color_red">#ff2e17</color>
+    <color name="color_green_ans">#39b64b</color>
+    <color name="color_0090ff">#0090ff</color>
+
+    <color name="color_62b04b">#62b04b</color>
+    <color name="color_9dcc6a">#9dcc6a</color>
+    <color name="color_2799b4">#2799b4</color>
+    <color name="color_67c5df">#67c5df</color>
+    <color name="color_ec849d">#ec849d</color>
+    <color name="color_f5adc1">#f5adc1</color>
+    <color name="color_9395c6">#9395c6</color>
+    <color name="color_bfa3cb">#bfa3cb</color>
+    <color name="light_Dark">#8F070000</color>
+
+</resources>
