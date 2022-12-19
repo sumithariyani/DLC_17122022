@@ -41,7 +41,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         QsOption model = list.get(position);
 
         if(iscurrect.equals("2")){
-            if(!model.getQuizStatus().equals("")) {
+            if(!model.getQuizStatus().equals("") && !model.getQuizStatus().equals("0")) {
                 holder.textView.setText(model.getQuizAnswer() + " (Skipped)");
             }else{
                 holder.textView.setText(model.getQuizAnswer());
