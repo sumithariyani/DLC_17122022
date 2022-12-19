@@ -90,24 +90,69 @@ public class GrammarPackagesActivity extends BaseFragment {
         adapter1New = new ChaptervideoAdapter1New(mContext, list1, new FilterClick() {
             @Override
             public void filterClick(int position) {
-                Fragment myFragment = new PackageActivity2();
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flFrameLayout, myFragment, "mywallet");
-                fragmentTransaction.addToBackStack("mywallet");
-                fragmentTransaction.commit();
+                if(list1.get(position).getFrom()=="1"){
 
-                Bundle bundle = new Bundle();
-                bundle.putString("image", list1.get(position).getImage_drawable());
-                bundle.putString("title", list1.get(position).getName());
-                bundle.putString("price", list1.get(position).getPrice());
-                bundle.putString("offerprice", list1.get(position).getOfferprice());
-                bundle.putString("Desc", list1.get(position).getDesc());
-                bundle.putString("packid", list1.get(position).getPack_id());
-                bundle.putString("userid", list1.get(position).getUserid());
-                bundle.putString("is_free", list1.get(position).getIs_free());
-                bundle.putString("rating", list1.get(position).getReting_bar());
-                bundle.putString("key", "1");
-                myFragment.setArguments(bundle);
+                    Fragment myFragment = new PackageActivity();
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.flFrameLayout, myFragment, "mywallet");
+                    fragmentTransaction.addToBackStack("mywallet");
+                    fragmentTransaction.commit();
+
+
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", list1.get(position).getImage_drawable());
+                    bundle.putString("title", list1.get(position).getName());
+                    bundle.putString("price", list1.get(position).getPrice());
+                    bundle.putString("offerprice", list1.get(position).getOfferprice());
+                    bundle.putString("Desc", list1.get(position).getDesc());
+                    bundle.putString("packid", list1.get(position).getPack_id());
+                    bundle.putString("userid", list1.get(position).getUserid());
+                    bundle.putString("is_free", list1.get(position).getIs_free());
+                    bundle.putString("rating", list1.get(position).getReting_bar());
+                    bundle.putString("key", "1");
+//                    Toast.makeText(mContext, ""+list1.get(position).getFrom(), Toast.LENGTH_SHORT).show();
+                    myFragment.setArguments(bundle);
+                }else{
+                    Fragment myFragment = new PackageActivity2();
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.flFrameLayout, myFragment, "mywallet");
+                    fragmentTransaction.addToBackStack("mywallet");
+                    fragmentTransaction.commit();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", list1.get(position).getImage_drawable());
+                    bundle.putString("title", list1.get(position).getName());
+                    bundle.putString("price", list1.get(position).getPrice());
+                    bundle.putString("offerprice", list1.get(position).getOfferprice());
+                    bundle.putString("Desc", list1.get(position).getDesc());
+                    bundle.putString("packid", list1.get(position).getPack_id());
+                    bundle.putString("userid", list1.get(position).getUserid());
+                    bundle.putString("is_free", list1.get(position).getIs_free());
+                    bundle.putString("rating", list1.get(position).getReting_bar());
+                    bundle.putString("key", "1");
+//                    Toast.makeText(mContext, ""+list1.get(position).getFrom(), Toast.LENGTH_SHORT).show();
+                    myFragment.setArguments(bundle);
+                }
+
+
+//                Fragment myFragment = new PackageActivity2();
+//                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.flFrameLayout, myFragment, "mywallet");
+//                fragmentTransaction.addToBackStack("mywallet");
+//                fragmentTransaction.commit();
+//
+//                Bundle bundle = new Bundle();
+//                bundle.putString("image", list1.get(position).getImage_drawable());
+//                bundle.putString("title", list1.get(position).getName());
+//                bundle.putString("price", list1.get(position).getPrice());
+//                bundle.putString("offerprice", list1.get(position).getOfferprice());
+//                bundle.putString("Desc", list1.get(position).getDesc());
+//                bundle.putString("packid", list1.get(position).getPack_id());
+//                bundle.putString("userid", list1.get(position).getUserid());
+//                bundle.putString("is_free", list1.get(position).getIs_free());
+//                bundle.putString("rating", list1.get(position).getReting_bar());
+//                bundle.putString("key", "1");
+//                bundle.putString("check",list1.get(position).getCkeck_list());
+//                myFragment.setArguments(bundle);
             }
         }, new FilterClickCart() {
             @Override
@@ -193,6 +238,7 @@ public class GrammarPackagesActivity extends BaseFragment {
                         fruitModel1.setPrice(s_price);
                         fruitModel1.setIs_free(is_free);
                         fruitModel1.setCkeck_list("0");
+                        fruitModel1.setFrom("0");
                         list1.add(fruitModel1);
 
                     }
