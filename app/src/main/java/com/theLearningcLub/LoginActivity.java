@@ -79,6 +79,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 mobile_number = Objects.requireNonNull(activityLoginBinding.etMobileNumber.getText()).toString().trim();
 
                 if(isload){
+                    isload=false;
                     if (TextUtils.isEmpty(mobile_number)){
                         activityLoginBinding.etMobileNumber.setError("Please enter mobile number");
                     }else if (mobile_number.length() < 10){
@@ -155,7 +156,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                             message = jsonObject1.getString("msg");
 
                             if (status.equals("true")){
-                                isload=false;
+                                isload=true;
                                 JSONObject object = new JSONObject(response);
 //                                System.out.println("login  responce  ****  >>>>>>>>   "+response);
                                 JSONObject object1 = object.getJSONObject("response");

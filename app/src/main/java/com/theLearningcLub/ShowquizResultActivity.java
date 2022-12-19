@@ -76,9 +76,9 @@ public class ShowquizResultActivity extends BaseActivity implements View.OnClick
             StringRequest stringRequest = new StringRequest(Request.Method.POST, AllUrl.quiz_all_infoApi,
                     response -> {
                         // Display the first 500 characters of the response string.
-                        Log.d("INFO", response);
+//                        Log.d("INFO", response);
 //                      Log.e(TAG, "onResponse:login "+response );
-                        System.out.println("quizResultApi response>>>>>>>>>>>>>>>" + response);
+                        System.out.println("quizResultApi response>>>>>>>>>2>>>>>>" + response);
                         try {
                             if (response != null) {
                                 QuizresultModel categoryModel = new Gson().fromJson(response, QuizresultModel.class);

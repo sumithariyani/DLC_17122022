@@ -1,6 +1,7 @@
 package com.theLearningcLub.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class QuizresultAdapter extends RecyclerView.Adapter<QuizresultAdapter.Vi
         Body model = list.get(position);
         int count = position+1;
 
-
+        Log.e("TAG", "onBindViewHolder: "+model.getQQus() );
         holder.question.setText("Q."+count+" "+model.getQQus());
         adapter = new AnswerAdapter(context,model.getQOption(),model.getIsCorrect(),model.getQsOptions());
         holder.answerRecycler.setAdapter(adapter);

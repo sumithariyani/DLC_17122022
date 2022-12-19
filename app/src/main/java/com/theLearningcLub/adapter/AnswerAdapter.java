@@ -1,6 +1,7 @@
 package com.theLearningcLub.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,13 +50,14 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             holder.textView.setText(model.getQuizAnswer());
         }
 
+        Log.e("TAG", "onBindViewHolder: "+model.getQuizStatus() );
 
         if (iscurrect.equals("0")){
             if (currect_ans.equals(model.getQuizAnswer())){
                 holder.textView.setTextColor(holder.textView.getContext().getResources().getColor(R.color.color_red));
             }
         }
-        if(!model.getQuizStatus().equals("")){
+        if(!model.getQuizStatus().equals("") && !model.getQuizStatus().equals("0")){
             holder.textView.setTextColor(holder.textView.getContext().getResources().getColor(R.color.color_green_ans));
         }
     }

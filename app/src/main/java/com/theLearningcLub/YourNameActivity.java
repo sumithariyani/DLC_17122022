@@ -44,6 +44,7 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
     String[] classarr=new String[] {"Select Class","Class 1", "Class 2", "Class 3","Class 4","Class 5","Class 6",
             "Class 7","Class 8","Class 9","Class 10","Class 11","Class 12"}; //inline initialization
 
+    boolean isload=true;
     String s_state,s_state_id,s_district,s_district_Id,s_school,s_class,s_school_Id;
     ArrayList<String> statearr = new ArrayList<>();
     ArrayList<String> stateIDarr = new ArrayList<>();
@@ -147,19 +148,23 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
             } else if (s_district.equals("Select City")) {
                 Toast.makeText(mContext, "Please select city", Toast.LENGTH_SHORT).show();
             } else{
-                if (schoolOthers.equals("school")) {
-                    if(s_school.equals("Select School")){
-                        Toast.makeText(mContext, "Please select School", Toast.LENGTH_SHORT).show();
-                    }
-                    else if(s_class.equals("Select Class")){
-                        Toast.makeText(mContext, "Please select Class", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+                if(isload){
+                    isload=false;
+                    if (schoolOthers.equals("school")) {
+                        if(s_school.equals("Select School")){
+                            Toast.makeText(mContext, "Please select School", Toast.LENGTH_SHORT).show();
+                        }
+                        else if(s_class.equals("Select Class")){
+                            Toast.makeText(mContext, "Please select Class", Toast.LENGTH_SHORT).show();
+                        }
+                        else{
+                            signUpApi();
+                        }
+                    }else{
                         signUpApi();
                     }
-                }else{
-                    signUpApi();
                 }
+
             }
 
         }
@@ -219,7 +224,7 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
                                     sessionManager.setLoginkey(s_login_key);
                                     sessionManager.setVerifystatus(verified_status);
                                     sessionManager.setIsAgent(is_agent);
-
+                                    isload=true;
                                     if (verified_status.contains("0")) {
                                         Intent in = new Intent(mContext,OtpActivity.class);
                                         in.putExtra("number", mobileNumber);
