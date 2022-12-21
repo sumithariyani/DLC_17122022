@@ -76,7 +76,7 @@ public class PackageActivity2 extends BaseFragment implements View.OnClickListen
         Objects.requireNonNull(getActivity()).getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         HomeActivity.tvUserHello.setText("");
-
+        Log.e("TAG", "onCreateView: "+"pageold" );
         activityPackageBinding.tvPackageRs.setPaintFlags(activityPackageBinding.tvPackageRs.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         activityPackageBinding.tvRs.setPaintFlags(activityPackageBinding.tvRs.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 

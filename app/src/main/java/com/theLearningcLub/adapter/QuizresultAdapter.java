@@ -37,7 +37,7 @@ public class QuizresultAdapter extends RecyclerView.Adapter<QuizresultAdapter.Vi
         Body model = list.get(position);
         int count = position+1;
 
-        Log.e("TAG", "onBindViewHolder: "+model.getQQus() );
+//        Log.e("TAG", "onBindViewHolder: "+model.getQQus() );
         holder.question.setText("Q."+count+" "+model.getQQus());
         adapter = new AnswerAdapter(context,model.getQOption(),model.getIsCorrect(),model.getQsOptions());
         holder.answerRecycler.setAdapter(adapter);

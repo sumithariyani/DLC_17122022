@@ -58,10 +58,10 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyHo
             int viewvalue = Integer.parseInt(purachase_package_free_video_models.get(position).getVideoview_Time());
             if(totalvalue!=0){
                 long parcentvalue = (((viewvalue) * 100)/(totalvalue))*100;
-                Log.e("TAG", "onBindViewHolder: "+parcentvalue);
+//                Log.e("TAG", "onBindViewHolder: "+parcentvalue);
                 holder.view_filter.getBackground().setLevel((int) parcentvalue);
             }else{
-                Log.e("TAG", "onBindViewHolder: "+"000");
+//                Log.e("TAG", "onBindViewHolder: "+"000");
 
                 holder.view_filter.getBackground().setLevel(0);
 

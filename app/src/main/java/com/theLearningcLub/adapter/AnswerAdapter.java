@@ -50,7 +50,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
             holder.textView.setText(model.getQuizAnswer());
         }
 
-        Log.e("TAG", "onBindViewHolder: "+model.getQuizStatus() );
+//        Log.e("TAG", "onBindViewHolder: "+model.getQuizStatus() );
 
         if (iscurrect.equals("0")){
             if (currect_ans.equals(model.getQuizAnswer())){

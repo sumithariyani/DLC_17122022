@@ -71,7 +71,7 @@ public class PackageVideoAdapter extends RecyclerView.Adapter<PackageVideoAdapte
             int viewvalue = Integer.parseInt(purachase_package_free_video_models.get(position).getVideoview_Time());
             if(totalvalue!=0 && viewvalue != 0){
                 long parcentvalue = (((viewvalue) * 100)/(totalvalue))*100;
-                Log.e("TAG", "onBindViewHolder: "+parcentvalue);
+//                Log.e("TAG", "onBindViewHolderolder: "+parcentvalue);
 
                 holder.view_filter.getBackground().setLevel((int) parcentvalue);
 
