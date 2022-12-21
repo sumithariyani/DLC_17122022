@@ -128,9 +128,8 @@ public class Activity_Quiz_Main extends BaseActivity {
                     finish();
                 }
                 if (current < queidarr.size()) {
-
+                    new AddToAnsTask().execute();
                 }
-                new AddToAnsTask().execute();
 
             }
         });

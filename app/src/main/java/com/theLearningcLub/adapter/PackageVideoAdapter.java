@@ -68,11 +68,13 @@ public class PackageVideoAdapter extends RecyclerView.Adapter<PackageVideoAdapte
 
             // Changed from int totalvalue to long totalvalue
             long totalvalue = Integer.parseInt(purachase_package_free_video_models.get(position).getVideototal_duration());
-            int viewvalue = Integer.parseInt(purachase_package_free_video_models.get(position).getVideoview_Time());
+            int viewvalue =0;
+            if(purachase_package_free_video_models.get(position).getVideoview_Time() !="-9.22337e15"){
+                 viewvalue = Integer.parseInt(purachase_package_free_video_models.get(position).getVideoview_Time());
+            }
             if(totalvalue!=0 && viewvalue != 0){
                 long parcentvalue = (((viewvalue) * 100)/(totalvalue))*100;
 //                Log.e("TAG", "onBindViewHolderolder: "+parcentvalue);
-
                 holder.view_filter.getBackground().setLevel((int) parcentvalue);
 
             }else {
