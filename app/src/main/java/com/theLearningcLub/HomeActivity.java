@@ -135,7 +135,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     public static String s_pack_id;
     public static String s_pack_type;
-    public static String video_name,video_date,videoimage,s_free_status;
+    public static String video_name,video_date,videoimage,s_free_status,stvideo_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -456,14 +456,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 status=jsonObject.getString("status");
                 JSONArray jsonArray=jsonObject.getJSONArray("body");
 
-
-
                     JSONObject c = jsonArray.getJSONObject(0);
+                    stvideo_id=c.getString("videos_id");
                     video_name=c.getString("video_name");
                     video_date=c.getString("videos_date");
                     videoimage = c.getString("image");
                     s_pack_id=c.getString("pack_id");
-                s_free_status=c.getString("pack_status");
+                    s_free_status=c.getString("pack_status");
                     s_pack_type=c.getString("pack_type");
                     JSONArray playlist= c.getJSONArray("play_list");
                     if(s_pack_type.equals("0")){
@@ -473,9 +472,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                             for (int p = 0; p < jsonArray1.length(); p++) {
 
                                 JSONObject jsonObject1 = jsonArray1.getJSONObject(p);
-                                if(c.getString("videos_id").equals(jsonObject1.getString("vid_id"))){
-                                    position=p;
-                                }
+//                                if(c.getString("videos_id").equals(jsonObject1.getString("vid_id"))){
+//                                    position=p;
+//                                }
 
                                 s_id = jsonObject1.getString("mar_id");
                                 s_desc = jsonObject1.getString("description");
@@ -508,9 +507,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         for (int p = 0; p < playlist.length(); p++) {
 
                             JSONObject jsonObject1 = playlist.getJSONObject(p);
-                            if(c.getString("videos_id").equals(jsonObject1.getString("videos_id"))){
-                                position=p;
-                            }
+//                            if(c.getString("videos_id").equals(jsonObject1.getString("videos_id"))){
+//                                position=p;
+//                            }
 
                             s_id = jsonObject1.getString("videos_id");
                             s_desc = jsonObject1.getString("video_description");

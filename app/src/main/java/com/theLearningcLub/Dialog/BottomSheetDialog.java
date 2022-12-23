@@ -8,6 +8,7 @@ import static com.theLearningcLub.HomeActivity.video_date;
 import static com.theLearningcLub.HomeActivity.video_name;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,13 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                 ArrayList<String> videolist = new ArrayList<>();
                 ArrayList<String> videotitle = new ArrayList<>();
                 for (int i = 0; i < HomeActivity.purachase_package_video_modelslist.size(); i++) {
+                    if(HomeActivity.stvideo_id.equals(HomeActivity.purachase_package_video_modelslist.get(i).getVideo_id())){
+                        position=i;
+                        Log.e("TAG", "doInBackground??????: "+i );
+//                                    Toast.makeText(HomeActivity.this, "one "+position, Toast.LENGTH_SHORT).show();
+                    }/*else{
+                        Log.e("TAG", "doInBackground??????:>>>> "+i );
+                    }*/
                     if (s_free_status.equals("0")) {
                         if (HomeActivity.purachase_package_video_modelslist.get(i).getIs_free().equals("0")) {
                         } else {
@@ -71,6 +79,8 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                     if (HomeActivity.purachase_package_video_modelslist.get(position).getIs_free().equals("0")){
                         Toast.makeText(getContext(), "To watch this amazing video, please purchase the package.", Toast.LENGTH_SHORT).show();
                     }else if (HomeActivity.purachase_package_video_modelslist.get(position).getIs_free().equals("1")){
+//                        Toast.makeText(getContext(), "three"+position, Toast.LENGTH_SHORT).show();
+
                         Intent in = new Intent(getContext(),VideoActivity.class);
                         in.putExtra("URI",HomeActivity.purachase_package_video_modelslist.get(position).getVideo());
                         in.putExtra("VIDEO_TITLE",HomeActivity.purachase_package_video_modelslist.get(position).getVideo_title());
@@ -88,6 +98,8 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                         startActivity(in);
                     }
                 }else {
+//                    Toast.makeText(getContext(), "three1."+position, Toast.LENGTH_SHORT).show();
+
                     Intent in = new Intent(getContext(),VideoActivity.class);
                     in.putExtra("URI",HomeActivity.purachase_package_video_modelslist.get(position).getVideo());
                     in.putExtra("VIDEO_TITLE",HomeActivity.purachase_package_video_modelslist.get(position).getVideo_title());

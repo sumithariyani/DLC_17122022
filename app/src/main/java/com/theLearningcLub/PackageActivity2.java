@@ -369,9 +369,9 @@ public class PackageActivity2 extends BaseFragment implements View.OnClickListen
                                     for (int i = 0; i < reviewModel.getData().size(); i++) {
                                         TotalReview = TotalReview + Integer.parseInt(reviewModel.getData().get(i).getReview());
                                         activityPackageBinding.tvReviewTotal.setText(""+reviewModel.getData().size()+" "+getResources().getString(R.string._30_review));
-//                                        activityPackageBinding.tvReviewTotal.setText(""+TotalReview+" "+getResources().getString(R.string._30_review));
-//                                        reviewAdapter = new ReviewAdapter(reviewModel.getData(),mContext);
-//                                        activityPackageBinding.rvVideo.setAdapter(reviewAdapter);
+                                        activityPackageBinding.tvReviewTotal.setText(""+TotalReview+" "+getResources().getString(R.string._30_review));
+                                        reviewAdapter = new ReviewAdapter(reviewModel.getData(),mContext);
+                                        activityPackageBinding.rvVideo.setAdapter(reviewAdapter);
                                     }
                                     activityPackageBinding.tvNoData.setVisibility(View.GONE);
                                     activityPackageBinding.rvVideo.setVisibility(View.VISIBLE);
