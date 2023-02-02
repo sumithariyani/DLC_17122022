@@ -47,7 +47,7 @@ String[] classarr_id=new String[] {"0","1", "2", "3","4","5","6",
             "7","8","9","10","11","12"}; //inline initialization
 
     boolean isload=true;
-    String s_state,s_state_id,s_district,s_district_Id,s_school,s_class,s_school_Id;
+    String s_state,s_state_id,s_district="Select city",s_district_Id,s_school,s_class="0",s_school_Id;
     ArrayList<String> statearr = new ArrayList<>();
     ArrayList<String> stateIDarr = new ArrayList<>();
     ArrayList<String> districtarr = new ArrayList<>();
@@ -147,22 +147,23 @@ String[] classarr_id=new String[] {"0","1", "2", "3","4","5","6",
 
             if (s_state.equals("Select state")) {
                 Toast.makeText(mContext, "Please select State", Toast.LENGTH_SHORT).show();
-            } else if (s_district.equals("Select City")) {
+            } else if (s_district.equals("Select city")) {
                 Toast.makeText(mContext, "Please select city", Toast.LENGTH_SHORT).show();
             } else{
                 if(isload){
-                    isload=false;
+
                     if (schoolOthers.equals("school")) {
                         if(s_school.equals("Select School")){
                             Toast.makeText(mContext, "Please select School", Toast.LENGTH_SHORT).show();
                         }
-                        else if(s_class.equals("Select Class")){
+                        else if(s_class.equals("0")){
                             Toast.makeText(mContext, "Please select Class", Toast.LENGTH_SHORT).show();
-                        }
-                        else{
+                        }else{
+                            isload=false;
                             signUpApi();
                         }
                     }else{
+                        isload=false;
                         signUpApi();
                     }
                 }
@@ -187,6 +188,7 @@ String[] classarr_id=new String[] {"0","1", "2", "3","4","5","6",
             case R.id._rbother:
                 if (checked)
                     schoolOthers="others";
+                activityYourNameBinding.classLg.setVisibility(View.GONE);
                 activityYourNameBinding.schoolLg.setVisibility(View.GONE);
                     // Ninjas rule
                     break;
