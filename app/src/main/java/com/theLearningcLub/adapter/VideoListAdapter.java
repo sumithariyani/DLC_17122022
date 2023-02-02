@@ -14,6 +14,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.theLearningcLub.Model_Class.Purachase_package_free_video_Model;
 import com.theLearningcLub.Model_Class.Purachase_package_video_Model;
 import com.theLearningcLub.R;
 import com.theLearningcLub.utils.FilterClick;
@@ -21,11 +22,11 @@ import com.theLearningcLub.utils.FilterClick;
 import java.util.List;
 
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.MyHolder>{
-    List<Purachase_package_video_Model> purachase_package_free_video_models;
+    List<Purachase_package_free_video_Model> purachase_package_free_video_models;
     Context context;
     FilterClick filterClick;
 
-    public VideoListAdapter(List<Purachase_package_video_Model> purachase_package_free_video_models, Context context,FilterClick filterClick) {
+    public VideoListAdapter(List<Purachase_package_free_video_Model> purachase_package_free_video_models, Context context, FilterClick filterClick) {
         this.purachase_package_free_video_models = purachase_package_free_video_models;
         this.context = context;
         this.filterClick = filterClick;

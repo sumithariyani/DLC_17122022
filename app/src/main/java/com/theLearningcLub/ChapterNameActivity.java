@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.theLearningcLub.Model_Class.Purachase_package_free_video_Model;
-import com.theLearningcLub.Model_Class.Purachase_package_video_Model;
-import com.theLearningcLub.adapter.PackageVideoAdapter;
 import com.theLearningcLub.adapter.VideoListAdapter;
 import com.theLearningcLub.apiClint.AllUrl;
 import com.theLearningcLub.databinding.ActivityChapterNameBinding;
@@ -27,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +35,8 @@ public class ChapterNameActivity extends BaseFragment {
 
     ActivityChapterNameBinding activityChapterNameBinding;
     String s, status, s_id, s_desc, s_video_date, s_title, s_video, s_pack_id, s_image, s_pack_name, s_v_id, s_pack_type, buy_package = "1";
-    List<Purachase_package_video_Model> purachase_package_video_modelslist = new ArrayList<>();
+//    ArrayList<Purachase_package_video_Model> purachase_package_video_modelslist = new ArrayList<>();
+    ArrayList<Purachase_package_free_video_Model> purachase_package_video_modelslist = new ArrayList<>();
 
     @Nullable
     @Override
@@ -117,16 +117,22 @@ public class ChapterNameActivity extends BaseFragment {
                         String videoviewtime = jsonObject1.getString("view_status");
                         String videotime = jsonObject1.getString("v_duration");
 
-                        Purachase_package_video_Model video_model = new Purachase_package_video_Model();
-                        video_model.setVideo_id(s_v_id);
-                        video_model.setVideo_title(s_title);
-                        video_model.setVideo(s_video);
-                        video_model.setVideo_desc(s_desc);
-                        video_model.setVideo_date(s_video_date);
-                        video_model.setVideo_image(s_image);
-                        video_model.setVideoview_Time(videoviewtime);
-                        video_model.setVideototal_duration(videotime);
-                        purachase_package_video_modelslist.add(video_model);
+//                        Purachase_package_video_Model video_model = new Purachase_package_video_Model();
+//                        video_model.setVideo_id(s_v_id);
+//                        video_model.setVideo_title(s_title);
+//                        video_model.setVideo(s_video);
+//                        video_model.setVideo_desc(s_desc);
+//                        video_model.setVideo_date(s_video_date);
+//                        video_model.setVideo_image(s_image);
+//                        video_model.setVideoview_Time(videoviewtime);
+//                        video_model.setVideototal_duration(videotime);
+//                        purachase_package_video_modelslist.add(video_model);
+
+
+                        purachase_package_video_modelslist.add(new Purachase_package_free_video_Model(s_v_id,
+                                s_title,s_desc,s_video,s_video_date,s_image,"1",videoviewtime,videotime));
+//                        purachase_package_video_modelslist.add(new Purachase_package_video_Model(s_v_id,
+//                                s_title,s_desc,s_video,s_video_date,s_image,videoviewtime,videotime));
 
                     }
                 }
@@ -161,12 +167,16 @@ public class ChapterNameActivity extends BaseFragment {
                     in.putExtra("s_pack_type", s_pack_type);
                     in.putExtra("videoType", "1");
                     in.putExtra("is_free", "1");
+                    in.putExtra("change","1");
                     in.putExtra("VIDEO_ID", purachase_package_video_modelslist.get(position).getVideo_id());
                     in.putExtra("position", position);
                     in.putExtra("viewduration", viewvdideo);
                     in.putExtra("from", "0");
                     in.putStringArrayListExtra("videoArrayList", videolist);
                     in.putStringArrayListExtra("titleArrayList", videotitle);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelableArrayList("ARRAYLIST", purachase_package_video_modelslist);
+                    in.putExtras(bundle);
 //                    System.out.println("pack id >>>>>>>>>>>>>>>>>>>>>>>>>>  "+s_pack_id);
 //                    System.out.println("vid id >>>>>>>>>>>>>>>>>>>>>>>>>>    "+purachase_package_video_modelslist.get(position).getVideo_id());
                     startActivity(in);
@@ -236,16 +246,22 @@ public class ChapterNameActivity extends BaseFragment {
                     }
 
 
-                    Purachase_package_video_Model video_model = new Purachase_package_video_Model();
-                    video_model.setVideo_id(s_v_id);
-                    video_model.setVideo_title(s_title);
-                    video_model.setVideo(s_video);
-                    video_model.setVideo_desc(s_desc);
-                    video_model.setVideo_date(s_video_date);
-                    video_model.setVideo_image(s_image);
-                    video_model.setVideoview_Time(videoviewtime);
-                    video_model.setVideototal_duration(videotime);
-                    purachase_package_video_modelslist.add(video_model);
+//                    Purachase_package_video_Model video_model = new Purachase_package_video_Model();
+//                    video_model.setVideo_id(s_v_id);
+//                    video_model.setVideo_title(s_title);
+//                    video_model.setVideo(s_video);
+//                    video_model.setVideo_desc(s_desc);
+//                    video_model.setVideo_date(s_video_date);
+//                    video_model.setVideo_image(s_image);
+//                    video_model.setVideoview_Time(videoviewtime);
+//                    video_model.setVideototal_duration(videotime);
+//                    purachase_package_video_modelslist.add(video_model);
+
+//                    purachase_package_video_modelslist.add(new Purachase_package_video_Model(s_v_id,
+//                            s_title,s_desc,s_video,s_video_date,s_image,videoviewtime,videotime));
+
+                    purachase_package_video_modelslist.add(new Purachase_package_free_video_Model(s_v_id,
+                            s_title,s_desc,s_video,s_video_date,s_image,"1",videoviewtime,videotime));
 
                 }
             } catch (JSONException e) {
@@ -282,12 +298,17 @@ public class ChapterNameActivity extends BaseFragment {
                         in.putExtra("s_pack_name", s_pack_name);
                         in.putExtra("VIDEO_ID", purachase_package_video_modelslist.get(position).getVideo_id());
                         in.putExtra("is_free", "1");
+                        in.putExtra("change","1");
                         in.putExtra("videoType", "1");
                         in.putExtra("from", "1");
                         in.putExtra("position", position);
                         in.putExtra("viewduration", viewvdideo);
                         in.putStringArrayListExtra("videoArrayList", videolist);
                         in.putStringArrayListExtra("titleArrayList", videotitle);
+                        Bundle bundle = new Bundle();
+                        bundle.putParcelableArrayList("ARRAYLIST", purachase_package_video_modelslist);
+                        in.putExtras(bundle);
+
 //                                Bundle bundle=new Bundle();
 //                                bundle.putParcelableArrayList("videoArrayList",purachase_package_video_modelslist);
 //                                in.putExtras(bundle);

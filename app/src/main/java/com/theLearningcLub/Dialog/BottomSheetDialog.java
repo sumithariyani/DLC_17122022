@@ -55,13 +55,15 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                 ArrayList<String> videolist = new ArrayList<>();
                 ArrayList<String> videotitle = new ArrayList<>();
                 for (int i = 0; i < HomeActivity.purachase_package_video_modelslist.size(); i++) {
+
+//                    Log.e("TAG", "doInBackground??????: "+i );
                     if(HomeActivity.stvideo_id.equals(HomeActivity.purachase_package_video_modelslist.get(i).getVideo_id())){
                         position=i;
                         Log.e("TAG", "doInBackground??????: "+i );
 //                                    Toast.makeText(HomeActivity.this, "one "+position, Toast.LENGTH_SHORT).show();
-                    }/*else{
+                    }else{
                         Log.e("TAG", "doInBackground??????:>>>> "+i );
-                    }*/
+                    }
                     if (s_free_status.equals("0")) {
                         if (HomeActivity.purachase_package_video_modelslist.get(i).getIs_free().equals("0")) {
                         } else {
@@ -95,6 +97,10 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                         in.putExtra("viewduration",viewvdideo);
                         in.putStringArrayListExtra("videoArrayList", videolist);
                         in.putStringArrayListExtra("titleArrayList", videotitle);
+
+                        Bundle bundle = new Bundle();
+                        bundle.putParcelableArrayList("ARRAYLIST", HomeActivity.purachase_package_video_modelslist);
+                        in.putExtras(bundle);
                         startActivity(in);
                     }
                 }else {
@@ -114,6 +120,9 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                     in.putExtra("viewduration",viewvdideo);
                     in.putStringArrayListExtra("videoArrayList", videolist);
                     in.putStringArrayListExtra("titleArrayList", videotitle);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelableArrayList("ARRAYLIST", HomeActivity.purachase_package_video_modelslist);
+                    in.putExtras(bundle);
                     startActivity(in);
                 }
                 dismiss();

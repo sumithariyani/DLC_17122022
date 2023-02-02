@@ -1,10 +1,13 @@
 package com.theLearningcLub.Model_Class;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by HP on 6/7/2019.
  */
 
-public class Purachase_package_video_Model {
+public class Purachase_package_video_Model implements Parcelable {
 
     String video_id;
     String video_title;
@@ -12,6 +15,40 @@ public class Purachase_package_video_Model {
     String video;
     String video_date;
     String video_image;
+
+    protected Purachase_package_video_Model(Parcel in) {
+        video_id = in.readString();
+        video_title = in.readString();
+        video_desc = in.readString();
+        video = in.readString();
+        video_date = in.readString();
+        video_image = in.readString();
+        videoview_Time = in.readString();
+        videototal_duration = in.readString();
+    }
+
+    public static final Creator<Purachase_package_video_Model> CREATOR = new Creator<Purachase_package_video_Model>() {
+        @Override
+        public Purachase_package_video_Model createFromParcel(Parcel in) {
+            return new Purachase_package_video_Model(in);
+        }
+
+        @Override
+        public Purachase_package_video_Model[] newArray(int size) {
+            return new Purachase_package_video_Model[size];
+        }
+    };
+
+    public Purachase_package_video_Model(String video_id, String video_title, String video_desc, String video, String video_date, String video_image, String videoview_Time, String videototal_duration) {
+        this.video_id = video_id;
+        this.video_title = video_title;
+        this.video_desc = video_desc;
+        this.video = video;
+        this.video_date = video_date;
+        this.video_image = video_image;
+        this.videoview_Time = videoview_Time;
+        this.videototal_duration = videototal_duration;
+    }
 
     public String getVideoview_Time() {
         return videoview_Time;
@@ -81,4 +118,20 @@ public class Purachase_package_video_Model {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(video_id);
+        parcel.writeString(video_title);
+        parcel.writeString(video_desc);
+        parcel.writeString(video);
+        parcel.writeString(video_date);
+        parcel.writeString(video_image);
+        parcel.writeString(videoview_Time);
+        parcel.writeString(videototal_duration);
+    }
 }

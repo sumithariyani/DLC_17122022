@@ -60,7 +60,7 @@ import java.util.Objects;
 public class PackageActivity extends BaseFragment implements View.OnClickListener{
 
     ArrayList<PDFModel> pdfModelArrayList = new ArrayList<>();
-    List<Purachase_package_free_video_Model> purachase_package_video_modelslist = new ArrayList<>();
+    ArrayList<Purachase_package_free_video_Model> purachase_package_video_modelslist = new ArrayList<>();
 
     ActivityPackageBinding activityPackageBinding;
     ReviewAdapter reviewAdapter;
@@ -663,17 +663,21 @@ public class PackageActivity extends BaseFragment implements View.OnClickListene
 
 
 
-                        Purachase_package_free_video_Model video_model = new Purachase_package_free_video_Model();
-                        video_model.setVideo_id(s_v_id);
-                        video_model.setVideo_title(s_title);
-                        video_model.setVideo(s_video);
-                        video_model.setVideo_desc(s_desc);
-                        video_model.setVideo_date(s_video_date);
-                        video_model.setVideo_image(s_image);
-                        video_model.setIs_free(is_free);
-                        video_model.setVideoview_Time(videoviewtime);
-                        video_model.setVideototal_duration(videotime);
-                        purachase_package_video_modelslist.add(video_model);
+//                        Purachase_package_free_video_Model video_model = new Purachase_package_free_video_Model();
+//                        video_model.setVideo_id(s_v_id);
+//                        video_model.setVideo_title(s_title);
+//                        video_model.setVideo(s_video);
+//                        video_model.setVideo_desc(s_desc);
+//                        video_model.setVideo_date(s_video_date);
+//                        video_model.setVideo_image(s_image);
+//                        video_model.setIs_free(is_free);
+//                        video_model.setVideoview_Time(videoviewtime);
+//                        video_model.setVideototal_duration(videotime);
+//                        purachase_package_video_modelslist.add(video_model);
+
+                    purachase_package_video_modelslist.add(new Purachase_package_free_video_Model(s_v_id,
+                            s_title,s_desc,s_video,s_video_date,s_image,is_free,videoviewtime,videotime));
+
 
                 }
             } catch (JSONException e) {
@@ -724,10 +728,16 @@ public class PackageActivity extends BaseFragment implements View.OnClickListene
                                 in.putExtra("is_free",s_is_free);
                                 in.putExtra("videoType","1");
                                 in.putExtra("from","1");
+                                in.putExtra("change","0");
                                 in.putExtra("position",position);
                                 in.putExtra("viewduration",viewvdideo);
                                 in.putStringArrayListExtra("videoArrayList", videolist);
                                 in.putStringArrayListExtra("titleArrayList", videotitle);
+
+                                Bundle bundle = new Bundle();
+                                bundle.putParcelableArrayList("ARRAYLIST", purachase_package_video_modelslist);
+                                in.putExtras(bundle);
+
 //                                Bundle bundle=new Bundle();
 //                                bundle.putParcelableArrayList("videoArrayList",purachase_package_video_modelslist);
 //                                in.putExtras(bundle);
@@ -746,6 +756,7 @@ public class PackageActivity extends BaseFragment implements View.OnClickListene
                             in.putExtra("is_free",s_is_free);
                             in.putExtra("videoType","1");
                             in.putExtra("from","1");
+                            in.putExtra("change","0");
                             in.putExtra("position",position);
                             in.putExtra("viewduration",viewvdideo);
                             in.putStringArrayListExtra("videoArrayList", videolist);

@@ -489,52 +489,81 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                                 String videoviewtime=jsonObject1.getString("view_status");
                                 String videotime=jsonObject1.getString("v_duration");
 
-                                Purachase_package_free_video_Model video_model = new Purachase_package_free_video_Model();
-                                video_model.setVideo_id( s_v_id);
-                                video_model.setVideo_title( s_title);
-                                video_model.setVideo( s_video);
-                                video_model.setVideo_desc( s_desc);
-                                video_model.setVideo_date( s_video_date);
-                                video_model.setVideo_image( s_image);
-                                video_model.setIs_free( is_free);
-                                video_model.setVideoview_Time(videoviewtime);
-                                video_model.setVideototal_duration(videotime);
-                                purachase_package_video_modelslist.add(video_model);
+//                                Purachase_package_free_video_Model video_model = new Purachase_package_free_video_Model();
+//                                video_model.setVideo_id( s_v_id);
+//                                video_model.setVideo_title( s_title);
+//                                video_model.setVideo( s_video);
+//                                video_model.setVideo_desc( s_desc);
+//                                video_model.setVideo_date( s_video_date);
+//                                video_model.setVideo_image( s_image);
+//                                video_model.setIs_free( is_free);
+//                                video_model.setVideoview_Time(videoviewtime);
+//                                video_model.setVideototal_duration(videotime);
+//                                purachase_package_video_modelslist.add(video_model);
+                                purachase_package_video_modelslist.add(new Purachase_package_free_video_Model(s_v_id,
+                                        s_title,s_desc,s_video,s_video_date,s_image,is_free,videoviewtime,videotime));
 
                             }
                         }
                     }else{
                         for (int p = 0; p < playlist.length(); p++) {
 
-                            JSONObject jsonObject1 = playlist.getJSONObject(p);
+                            JSONObject jsonObject2 = playlist.getJSONObject(p);
+
+                            JSONArray jsonArray1 = jsonObject2.getJSONArray("vid_data");
+                            for (int i = 0; i < jsonArray1.length(); i++) {
+
+                                JSONObject jsonObject1 = jsonArray1.getJSONObject(i);
+                                s_id = jsonObject1.getString("mar_id");
+                                s_desc = jsonObject1.getString("description");
+                                s_video_date = jsonObject1.getString("videos_date");
+                                s_title = jsonObject1.getString("Title");
+                                s_video = jsonObject1.getString("videncd");
+                                s_image = jsonObject1.getString("image");
+                                s_v_id = jsonObject1.getString("vid_id");
+                                if (jsonObject1.has("is_free")) {
+                                    is_free = jsonObject1.getString("is_free");
+                                }
+                                String videoviewtime=jsonObject1.getString("view_status");
+                                String videotime=jsonObject1.getString("v_duration");
+
+                                purachase_package_video_modelslist.add(new Purachase_package_free_video_Model(s_v_id,
+                                        s_title,s_desc,s_video,s_video_date,s_image,is_free,videoviewtime,videotime));
+
+                            }
+
 //                            if(c.getString("videos_id").equals(jsonObject1.getString("videos_id"))){
 //                                position=p;
 //                            }
 
-                            s_id = jsonObject1.getString("videos_id");
-                            s_desc = jsonObject1.getString("video_description");
-                            s_video_date = jsonObject1.getString("videos_date");
-                            s_title = jsonObject1.getString("video_name");
-                            s_video = jsonObject1.getString("videncd");
-                            s_image = jsonObject1.getString("image");
-                            s_v_id = jsonObject1.getString("videos_id");
-                            if (jsonObject1.has("free_status")) {
-                                is_free = jsonObject1.getString("free_status");
-                            }
-                            String videoviewtime=jsonObject1.getString("view_status");
-                            String videotime=jsonObject1.getString("v_duration");
+//                            s_id = jsonObject1.getString("videos_id");
+//                            s_id = jsonObject1.getString("vid_id");
+//                            s_desc = jsonObject1.getString("video_description");
+//                            s_video_date = jsonObject1.getString("videos_date");
+//                            s_title = jsonObject1.getString("video_name");
+//                            s_video = jsonObject1.getString("videncd");
+//                            s_image = jsonObject1.getString("image");
+//                            s_v_id = jsonObject1.getString("vid_id");
+//                            if (jsonObject1.has("free_status")) {
+//                                is_free = jsonObject1.getString("free_status");
+//                            }
+//                            String videoviewtime=jsonObject1.getString("view_status");
+//                            String videotime=jsonObject1.getString("v_duration");
 
-                            Purachase_package_free_video_Model video_model = new Purachase_package_free_video_Model();
-                            video_model.setVideo_id( s_v_id);
-                            video_model.setVideo_title( s_title);
-                            video_model.setVideo( s_video);
-                            video_model.setVideo_desc( s_desc);
-                            video_model.setVideo_date( s_video_date);
-                            video_model.setVideo_image( s_image);
-                            video_model.setIs_free( is_free);
-                            video_model.setVideoview_Time(videoviewtime);
-                            video_model.setVideototal_duration(videotime);
-                            purachase_package_video_modelslist.add(video_model);
+//                            Purachase_package_free_video_Model video_model = new Purachase_package_free_video_Model();
+//                            video_model.setVideo_id( s_v_id);
+//                            video_model.setVideo_title( s_title);
+//                            video_model.setVideo( s_video);
+//                            video_model.setVideo_desc( s_desc);
+//                            video_model.setVideo_date( s_video_date);
+//                            video_model.setVideo_image( s_image);
+//                            video_model.setIs_free( is_free);
+//                            video_model.setVideoview_Time(videoviewtime);
+//                            video_model.setVideototal_duration(videotime);
+//                            purachase_package_video_modelslist.add(video_model);
+
+//                            purachase_package_video_modelslist.add(new Purachase_package_free_video_Model(s_v_id,
+//                                    s_title,s_desc,s_video,s_video_date,s_image,is_free,videoviewtime,videotime));
 
                         }
                     }
@@ -564,7 +593,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 }
 
             }catch (Exception e){
-
+                Log.e(TAG, "onPostExecute: "+e.toString() );
             }
 //                }
 //            },1000);

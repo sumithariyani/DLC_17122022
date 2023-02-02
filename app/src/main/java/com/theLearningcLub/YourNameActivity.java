@@ -43,6 +43,8 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
     String DEVICEID,status;
     String[] classarr=new String[] {"Select Class","Class 1", "Class 2", "Class 3","Class 4","Class 5","Class 6",
             "Class 7","Class 8","Class 9","Class 10","Class 11","Class 12"}; //inline initialization
+String[] classarr_id=new String[] {"0","1", "2", "3","4","5","6",
+            "7","8","9","10","11","12"}; //inline initialization
 
     boolean isload=true;
     String s_state,s_state_id,s_district,s_district_Id,s_school,s_class,s_school_Id;
@@ -242,6 +244,7 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
                                     CommonFunction.showToastSingle(mContext,message);
                                 }
                             }else {
+                                isload=true;
                                 CommonFunction.showToastSingle(mContext,messageError);
                                 if (messageError.equals("Email already registered!")){
                                     activityYourNameBinding.llSelectLocation.setVisibility(View.GONE);
@@ -280,7 +283,6 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
                     if(schoolOthers.equals("school")){
                         params.put("school_id",s_school_Id);
                         params.put("class",s_class);
-
                     }else if(schoolOthers.equals("others")){
                         params.put("school_id","0");
                     }
@@ -341,7 +343,7 @@ public class YourNameActivity extends BaseActivity implements View.OnClickListen
                                             @Override
                                             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 //                                    Toast.makeText(getApplicationContext(), statearr.get(i), Toast.LENGTH_LONG).show();
-                                                s_class = classarr[i];
+                                                s_class = classarr_id[i];
                                             }
 
                                             @Override

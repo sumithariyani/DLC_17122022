@@ -71,6 +71,7 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.theLearningcLub.Model_Class.Purachase_package_free_video_Model;
+import com.theLearningcLub.Model_Class.Purachase_package_video_Model;
 import com.theLearningcLub.adapter.PackageVideoAdapter;
 import com.theLearningcLub.apiClint.AllUrl;
 import com.theLearningcLub.databinding.ActivityVideoBinding;
@@ -86,6 +87,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class VideoActivity extends BaseActivity implements View.OnClickListener, PopupMenu.OnMenuItemClickListener {
 
@@ -161,6 +163,9 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
     ArrayList<Purachase_package_free_video_Model> purachase_package_video_modelslist = new ArrayList<>();
     String s_pack_id, user_status, response, s_is_free, id, s_pack_name, desc, pack_type, videoType, url, title, s_image, s_video_date;
     String from="2";
+
+    List<Purachase_package_video_Model> purachase_package_video_modelslist2 = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -522,6 +527,13 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
         videoType = getIntent().getStringExtra("videoType");
 
+
+//        if(getIntent().getStringExtra("change").equals("0")) {
+            purachase_package_video_modelslist = getIntent().getExtras().getParcelableArrayList("ARRAYLIST");
+//        }else{
+//            purachase_package_video_modelslist2 = getIntent().getExtras().getParcelableArrayList("ARRAYLIST");
+//        }
+
         if (videoType.equals("0")) {
             url = getIntent().getStringExtra("URI");
             title = getIntent().getStringExtra("VIDEO_TITLE");
@@ -601,17 +613,17 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
         activityVideoBinding.videoTitle.setText(title);
 
-        try {
-            from=getIntent().getStringExtra("from");
-        }catch (Exception e){
-            from="2";
-        }
-
-        if (from.equals("1")){
-            new view_download_list_asy2().execute();
-        }else{
-            new view_download_list_asy().execute();
-        }
+//        try {
+//            from=getIntent().getStringExtra("from");
+//        }catch (Exception e){
+//            from="2";
+//        }
+//
+//        if (from.equals("1")){
+//            new view_download_list_asy2().execute();
+//        }else{
+//            new view_download_list_asy().execute();
+//        }
 
 //        new view_download_list_asy().execute();
 
@@ -1203,18 +1215,18 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
 
 
-                    Purachase_package_free_video_Model video_model=new Purachase_package_free_video_Model();
-                    video_model.setVideo_id(s_id);
-                    video_model.setVideo_title(s_title);
-                    video_model.setVideo(s_video);
-                    video_model.setVideo_desc(s_desc);
-                    video_model.setVideo_date(s_video_date);
-                    video_model.setVideo_image(s_image);
-                    video_model.setIs_free(is_free);
-
-                    video_model.setVideoview_Time(videoviewtime);
-                    video_model.setVideototal_duration(videotime);
-                    purachase_package_video_modelslist.add(video_model);
+//                    Purachase_package_free_video_Model video_model=new Purachase_package_free_video_Model();
+//                    video_model.setVideo_id(s_id);
+//                    video_model.setVideo_title(s_title);
+//                    video_model.setVideo(s_video);
+//                    video_model.setVideo_desc(s_desc);
+//                    video_model.setVideo_date(s_video_date);
+//                    video_model.setVideo_image(s_image);
+//                    video_model.setIs_free(is_free);
+//
+//                    video_model.setVideoview_Time(videoviewtime);
+//                    video_model.setVideototal_duration(videotime);
+//                    purachase_package_video_modelslist.add(video_model);
 
 
                 }
@@ -1297,18 +1309,18 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
                         }
 
 
-                        Purachase_package_free_video_Model video_model=new Purachase_package_free_video_Model();
-                        video_model.setVideo_id(s_id);
-                        video_model.setVideo_title(s_title);
-                        video_model.setVideo(s_video);
-                        video_model.setVideo_desc(s_desc);
-                        video_model.setVideo_date(s_video_date);
-                        video_model.setVideo_image(s_image);
-                        video_model.setIs_free(is_free);
-
-                        video_model.setVideoview_Time(videoviewtime);
-                        video_model.setVideototal_duration(videotime);
-                        purachase_package_video_modelslist.add(video_model);
+//                        Purachase_package_free_video_Model video_model=new Purachase_package_free_video_Model();
+//                        video_model.setVideo_id(s_id);
+//                        video_model.setVideo_title(s_title);
+//                        video_model.setVideo(s_video);
+//                        video_model.setVideo_desc(s_desc);
+//                        video_model.setVideo_date(s_video_date);
+//                        video_model.setVideo_image(s_image);
+//                        video_model.setIs_free(is_free);
+//
+//                        video_model.setVideoview_Time(videoviewtime);
+//                        video_model.setVideototal_duration(videotime);
+//                        purachase_package_video_modelslist.add(video_model);
                     }
                 }
             } catch (JSONException e) {
