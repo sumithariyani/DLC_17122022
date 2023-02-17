@@ -325,6 +325,15 @@ public class ChapterNameActivity extends BaseFragment {
             }
         }
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+//        Toast.makeText(mContext, "working", Toast.LENGTH_SHORT).show();
+        if (s_pack_type.equals("new_package")){
+            new view_download_list_asy1().execute();
+        } else if (s_pack_type.equals("old_package")){
+            new view_download_list_asy().execute();
+        }
+    }
 
 }

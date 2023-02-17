@@ -79,12 +79,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 mobile_number = Objects.requireNonNull(activityLoginBinding.etMobileNumber.getText()).toString().trim();
 
                 if(isload){
-                    isload=false;
+
                     if (TextUtils.isEmpty(mobile_number)){
                         activityLoginBinding.etMobileNumber.setError("Please enter mobile number");
                     }else if (mobile_number.length() < 10){
                         activityLoginBinding.etMobileNumber.setError("Please enter valid mobile number");
                     }else {
+                        isload=false;
                         loginApi();
                     }
                 }
@@ -144,6 +145,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             // Request a string response from the provided URL.
             StringRequest stringRequest = new StringRequest(Request.Method.POST, AllUrl.MainURL+"defaenclog_otp_jk.php"/*AllUrl.defaenclog_otpApi*/,
                     response -> {
+                        isload=true;
                         // Display the first 500 characters of the response string.
 //                        Log.d("INFO", response);
 //                                Log.e(TAG, "onResponse:login "+response );
@@ -172,7 +174,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                                 Intent intent = new Intent(LoginActivity.this,LoginOtpActivity.class);
                                 startActivity(intent);
                             }
-//                            Toast.makeText(LoginActivity.this, message+"", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, message+"", Toast.LENGTH_LONG).show();
 
                             hideProgressDialog();
 
