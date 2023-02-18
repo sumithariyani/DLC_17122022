@@ -239,22 +239,24 @@
                         android:layout_gravity="center"/>
                 </LinearLayout>
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:gravity="bottom"
+                    android:paddingBottom="@dimen/_10sdp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:text="Version"
+                        android:id="@+id/versionName"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:gravity="bottom"
-            android:paddingBottom="@dimen/_10sdp"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:gravity="center"
-                android:text="Version"
-                android:id="@+id/versionName"
-                android:layout_height="wrap_content"/>
-
-        </RelativeLayout>
     </LinearLayout>
 </layout>

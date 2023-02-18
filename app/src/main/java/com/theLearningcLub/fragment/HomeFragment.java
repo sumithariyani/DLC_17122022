@@ -38,6 +38,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -297,6 +298,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
 
         return fragmentHomeBinding.getRoot();
     }
+
+
 
     private boolean loadFragment(Fragment fragment) {
         //switching fragment

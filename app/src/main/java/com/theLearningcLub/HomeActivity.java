@@ -19,8 +19,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -39,6 +41,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -617,6 +620,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 //                sessionManager.setfragmentclick("true");
                 break;
             case R.id.ivBack:
+
+                View view2 = this.getCurrentFocus();
+                if (view2 != null) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view2.getWindowToken(), 0);
+                }
                 onBackPressed();
                 break;
             case R.id.iv_menu_main:
@@ -1232,6 +1241,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
+
         tvUserHello.setText(getResources().getString(R.string.hello) + " " + s_first);
     }
 

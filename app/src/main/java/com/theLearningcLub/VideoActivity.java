@@ -165,7 +165,7 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
     String from="2";
 
     List<Purachase_package_video_Model> purachase_package_video_modelslist2 = new ArrayList<>();
-
+    final Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -653,7 +653,20 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
                 changeScreenOrientation();
             }
         });
-
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                videoWatchedTime = player.getDuration() / 1000;
+                currentvideoposition = player.getCurrentPosition() / 1000;
+//                Toast.makeText(mContext, currentvideoposition
+//                        +"/"+videoWatchedTime, Toast.LENGTH_SHORT).show();
+                if(currentvideoposition==(videoWatchedTime-1)){
+                    new Addviewapi().execute();
+//                    Toast.makeText(mContext, "currentvideoposition:"+id, Toast.LENGTH_SHORT).show();
+                }
+                handler.postDelayed(this, 1000); //1000ms frequency of updates.
+            }
+        }, 1000);
     }
 
 
@@ -792,7 +805,6 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
             MediaItem mediaItem = MediaItem.fromUri(videoList.get(i));
 
-
 //            if (id.equals("515")) {
 //                MediaSource mediaSource = new ProgressiveMediaSource.Factory(dataSourceFactory)
 ////                        .createMediaSource(mediaItem);
@@ -821,19 +833,31 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
                 Player.Listener.super.onPlayerError(error);
                 Toast.makeText(VideoActivity.this, "Video Playing Error" + error, Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
                 int latestWindowIndex = player.getCurrentWindowIndex();
                 if (latestWindowIndex != lastWindowIndex) {
                     // item selected in playlist has changed, handle here
                     lastWindowIndex = latestWindowIndex;
+                    position=lastWindowIndex;
                     title5.setText(videotitleList.get(lastWindowIndex));
+                    int viewvdideo = Integer.parseInt(purachase_package_video_modelslist.get(position).getVideoview_Time().toString()) * 1000;
+                    id = purachase_package_video_modelslist.get(position).getVideo_id();
+                    videovduration = viewvdideo;
 
+                    player.seekTo(videovduration);
+//                    Handler videohandle= new Handler();
+//                    videohandle.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            if(player.isPlaying()) {
+//                                player.seekTo(videovduration);
+//                            }
+//                        }
+//                    },2000);
                 }
                 videoWatchedTime = player.getDuration() / 1000;
                 currentvideoposition = player.getCurrentPosition() / 1000;
-
                 if (videoWatchedTime > 0) {
                     runfrom = true;
                     new Addviewapi().execute();
@@ -848,19 +872,20 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
                     // item selected in playlist has changed, handle here
                     lastWindowIndex = latestWindowIndex;
                     title5.setText(videotitleList.get(lastWindowIndex));
+                    position=lastWindowIndex;
+                    int viewvdideo = Integer.parseInt(purachase_package_video_modelslist.get(position).getVideoview_Time().toString()) * 1000;
+                    id = purachase_package_video_modelslist.get(position).getVideo_id();
+                    videovduration = viewvdideo;
+                    player.seekTo(videovduration);
 
                 }
-
                 videoWatchedTime = player.getDuration() / 1000;
                 currentvideoposition = player.getCurrentPosition() / 1000;
-
                 if (videoWatchedTime > 0) {
                     runfrom = true;
                     new Addviewapi().execute();
                 }
-
             }
-
         });
         player.setPlayWhenReady(true);
         player.seekTo(videovduration);
@@ -1339,9 +1364,9 @@ public class VideoActivity extends BaseActivity implements View.OnClickListener,
 
 
     class Addviewapi extends AsyncTask<String, String, String> {
-
         @Override
         protected void onPreExecute() {
+
             super.onPreExecute();
         }
 

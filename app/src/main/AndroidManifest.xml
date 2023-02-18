@@ -106,6 +106,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
+            android:windowSoftInputMode="stateHidden"
             android:configChanges="orientation|screenSize"
             android:exported="false" />
         <activity
